@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <title>FireBot — Plataforma Self-Service de Automação de Suporte</title>
+  <meta name="description" content="Sua infraestrutura de suporte pronta em 5 minutos. Logue, treine sua IA e ative. Plataforma completa de automação com Widget + WhatsApp." />
+
+  <!-- Preconnect fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Roboto:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== CANVAS BACKGROUND ===== -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- ===== MOUSE GLOW ===== -->
+  <div class="mouse-glow" id="mouse-glow" aria-hidden="true"></div>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar" id="navbar" role="banner">
+    <nav class="navbar-inner" aria-label="Navegação principal">
+
+      <a href="#" class="logo" aria-label="FireBot - Início">
+        <span class="logo-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 3C14 3 8 9 8 15C8 18.31 10.69 21 14 21C17.31 21 20 18.31 20 15C20 9 14 3 14 3Z" fill="var(--heat-100)" opacity="0.9"/>
+            <path d="M14 11C14 11 11 14 11 16.5C11 18.43 12.57 20 14.5 20C16.43 20 18 18.43 18 16.5C18 14 14 11 14 11Z" fill="var(--heat-100)"/>
+            <circle cx="14" cy="25" r="1.5" fill="var(--heat-100)" opacity="0.5"/>
+          </svg>
+        </span>
+        <span class="logo-text">FireBot</span>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="#como-funciona" class="nav-link">Como Funciona</a></li>
+        <li><a href="#features" class="nav-link">Features</a></li>
+        <li><a href="#dashboard" class="nav-link">Dashboard</a></li>
+        <li><a href="#integracao" class="nav-link">Integrações</a></li>
+      </ul>
+
+      <div class="nav-ctas">
+        <a href="#" class="btn btn-ghost btn-sm nav-login">
+          Entrar
+        </a>
+        <a href="#" class="btn btn-primary btn-sm nav-btn-cta">
+          Contactar
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M2 7H12M12 7L8 3.5M12 7L8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+
+      <button class="nav-hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Menu mobile">
+      <a href="#como-funciona" class="mobile-link">Como Funciona</a>
+      <a href="#features" class="mobile-link">Features</a>
+      <a href="#dashboard" class="mobile-link">Dashboard</a>
+      <a href="#integracao" class="mobile-link">Integrações</a>
+      <div class="mobile-menu-ctas">
+        <a href="#" class="btn btn-ghost" style="flex:1;text-align:center;">Entrar</a>
+        <a href="#" class="btn btn-primary" style="flex:1;text-align:center;">Começar Grátis</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="hero" aria-label="Seção principal">
+      <div class="hero-inner">
+
+        <div class="hero-eyebrow fade-up" data-delay="0">
+          <span class="eyebrow-pill js-interactive-pill">
+            <span class="eyebrow-dot"></span>
+            <span class="eyebrow-text">Plataforma Autogerenciável · Versão 2026</span>
+          </span>
+        </div>
+
+        <h1 class="hero-title fade-up" data-delay="80">
+          Sua infraestrutura<br />
+          de suporte pronta<br />
+          <em class="heat-em">em 5 minutos.</em>
+        </h1>
+
+        <p class="hero-subtitle fade-up" data-delay="180">
+          Logue, treine sua IA com seus documentos e ative o suporte
+          multi-canal. Widget no site + WhatsApp. Sem código, sem
+          devops, sem mensalidades absurdas.
+        </p>
+
+        <div class="hero-actions fade-up" data-delay="280">
+          <a href="#" class="btn btn-primary btn-xl btn-glow">
+            Falar com Especialista
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M3 9H15M15 9L10 4.5M15 9L10 13.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="#como-funciona" class="btn btn-ghost btn-xl">
+            Ver Como Funciona
+          </a>
+        </div>
+
+        <div class="hero-trust fade-up" data-delay="360">
+          <div class="trust-item">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M2 7L5.5 10.5L12 3.5" stroke="var(--heat-100)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Setup em 5 minutos</span>
+          </div>
+          <div class="trust-sep" aria-hidden="true"></div>
+          <div class="trust-item">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M2 7L5.5 10.5L12 3.5" stroke="var(--heat-100)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Sem cartão de crédito</span>
+          </div>
+          <div class="trust-sep" aria-hidden="true"></div>
+          <div class="trust-item">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M2 7L5.5 10.5L12 3.5" stroke="var(--heat-100)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Cancele quando quiser</span>
+          </div>
+        </div>
+
+        <!-- HERO VISUAL: DASHBOARD PREVIEW TEASER -->
+        <div class="hero-visual-wrap fade-up" data-delay="500">
+          <div class="hero-visual-chrome">
+            <div class="chrome-bar">
+              <div class="chrome-dots">
+                <span class="cdot cdot-red"></span>
+                <span class="cdot cdot-yellow"></span>
+                <span class="cdot cdot-green"></span>
+              </div>
+              <div class="chrome-url">
+                <span class="chrome-lock">
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                    <rect x="2" y="4.5" width="6" height="4.5" rx="1" stroke="var(--ink-400)" stroke-width="0.8"/>
+                    <path d="M3.5 4.5V3C3.5 2.17 4.17 1.5 5 1.5C5.83 1.5 6.5 2.17 6.5 3V4.5" stroke="var(--ink-400)" stroke-width="0.8" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                app.firebot.io/dashboard
+              </div>
+            </div>
+            <div class="chrome-body">
+
+              <!-- MINI DASHBOARD PREVIEW -->
+              <div class="mini-dash">
+
+                <aside class="mini-sidebar">
+                  <div class="mini-logo-wrap">
+                    <svg width="18" height="18" viewBox="0 0 28 28" fill="none">
+                      <path d="M14 3C14 3 8 9 8 15C8 18.31 10.69 21 14 21C17.31 21 20 18.31 20 15C20 9 14 3 14 3Z" fill="var(--heat-100)" opacity="0.9"/>
+                      <path d="M14 11C14 11 11 14 11 16.5C11 18.43 12.57 20 14.5 20C16.43 20 18 18.43 18 16.5C18 14 14 11 14 11Z" fill="var(--heat-100)"/>
+                    </svg>
+                  </div>
+                  <nav class="mini-nav">
+                    <button class="mini-nav-item mini-nav-active" aria-label="Overview">
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor" opacity="0.8"/>
+                        <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor" opacity="0.4"/>
+                        <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor" opacity="0.4"/>
+                        <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor" opacity="0.4"/>
+                      </svg>
+                    </button>
+                    <button class="mini-nav-item" aria-label="Conversas">
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <path d="M12 8C12 8.37 11.85 8.7 11.6 8.95L9 11.55V10H3C2.45 10 2 9.55 2 9V3C2 2.45 2.45 2 3 2H11C11.55 2 12 2.45 12 3V8Z" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </button>
+                    <button class="mini-nav-item" aria-label="Conhecimento">
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <path d="M2 3H9M2 6H7M2 9H5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                        <circle cx="11" cy="9" r="2.5" stroke="currentColor" stroke-width="1"/>
+                        <path d="M12.77 11.27L14 12.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                      </svg>
+                    </button>
+                    <button class="mini-nav-item" aria-label="Configurações">
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <circle cx="7" cy="7" r="2" stroke="currentColor" stroke-width="1"/>
+                        <path d="M7 1.5V2.5M7 11.5V12.5M1.5 7H2.5M11.5 7H12.5M3.27 3.27L3.98 3.98M10.02 10.02L10.73 10.73M10.73 3.27L10.02 3.98M3.98 10.02L3.27 10.73" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                      </svg>
+                    </button>
+                  </nav>
+                </aside>
+
+                <div class="mini-main">
+                  <!-- Top bar -->
+                  <div class="mini-topbar">
+                    <span class="mini-page-title">Visão Geral</span>
+                    <div class="mini-topbar-right">
+                      <span class="mini-status-pill">
+                        <span class="mini-online-dot"></span>
+                        Bot Ativo
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Stats row -->
+                  <div class="mini-stats-row">
+                    <div class="mini-stat-card">
+                      <span class="mini-stat-label">Atendimentos</span>
+                      <span class="mini-stat-value" data-count="1247" data-suffix="">0</span>
+                      <span class="mini-stat-delta mini-delta-up">+12%</span>
+                    </div>
+                    <div class="mini-stat-card">
+                      <span class="mini-stat-label">Resolvidos</span>
+                      <span class="mini-stat-value" data-count="94" data-suffix="%">0%</span>
+                      <span class="mini-stat-delta mini-delta-up">+3%</span>
+                    </div>
+                    <div class="mini-stat-card">
+                      <span class="mini-stat-label">Tempo Médio</span>
+                      <span class="mini-stat-value">1.2s</span>
+                      <span class="mini-stat-delta mini-delta-up">-0.4s</span>
+                    </div>
+                  </div>
+
+                  <!-- Chart placeholder -->
+                  <div class="mini-chart-wrap">
+                    <div class="mini-chart-header">
+                      <span class="mini-chart-title">Conversas / 7 dias</span>
+                    </div>
+                    <div class="mini-chart" aria-hidden="true">
+                      <svg class="mini-bars" viewBox="0 0 260 60" preserveAspectRatio="none">
+                        <defs>
+                          <linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="rgba(255,79,0,0.7)"/>
+                            <stop offset="100%" stop-color="rgba(255,79,0,0.15)"/>
+                          </linearGradient>
+                        </defs>
+                        <rect x="6"   y="38" width="22" height="22" rx="3" fill="url(#barGrad)" class="mini-bar"/>
+                        <rect x="44"  y="20" width="22" height="40" rx="3" fill="url(#barGrad)" class="mini-bar"/>
+                        <rect x="82"  y="28" width="22" height="32" rx="3" fill="url(#barGrad)" class="mini-bar"/>
+                        <rect x="120" y="10" width="22" height="50" rx="3" fill="url(#barGrad)" class="mini-bar"/>
+                        <rect x="158" y="24" width="22" height="36" rx="3" fill="url(#barGrad)" class="mini-bar"/>
+                        <rect x="196" y="16" width="22" height="44" rx="3" fill="url(#barGrad)" class="mini-bar"/>
+                        <rect x="234" y="6"  width="22" height="54" rx="3" fill="rgba(255,79,0,0.9)" class="mini-bar mini-bar-active"/>
+                      </svg>
+                    </div>
+                  </div>
+
+                  <!-- Channels row -->
+                  <div class="mini-channels-row">
+                    <div class="mini-channel-tag mini-channel-active">
+                      <span class="mini-channel-dot" style="background:#FF4F00"></span>
+                      Widget Web
+                    </div>
+                    <div class="mini-channel-tag">
+                      <span class="mini-channel-dot" style="background:#25D366"></span>
+                      WhatsApp
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <!-- /mini-dash -->
+
+            </div>
+          </div>
+        </div>
+        <!-- /hero-visual-wrap -->
+
+      </div>
+    </section>
+
+    <!-- ===== COMO FUNCIONA ===== -->
+    <section class="como-funciona" id="como-funciona" aria-label="Como funciona o FireBot">
+      <div class="container">
+
+        <div class="section-header fade-up">
+          
+          <h2 class="section-title-xl">
+            Do zero ao suporte ativo<br />
+            <span class="heat-em">em três etapas.</span>
+          </h2>
+          <p class="section-sub">
+            Desenhado para que qualquer pessoa — técnica ou não — coloque
+            seu suporte inteligente no ar hoje mesmo.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+
+          <!-- STEP 01 -->
+          <div class="step-card fade-up" data-delay="0">
+            <div class="step-number-wrap">
+              <span class="step-number">01</span>
+              <div class="step-connector" aria-hidden="true"></div>
+            </div>
+            <div class="step-content">
+              <div class="step-icon-wrap">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <rect x="4" y="6" width="20" height="16" rx="3" stroke="var(--heat-100)" stroke-width="1.6"/>
+                  <circle cx="14" cy="12" r="3" stroke="var(--heat-100)" stroke-width="1.4"/>
+                  <path d="M8 20C8 17.24 10.69 15 14 15C17.31 15 20 17.24 20 20" stroke="var(--heat-100)" stroke-width="1.4" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <h3 class="step-title">Autenticação Simples</h3>
+              <p class="step-desc">
+                Crie sua conta com e-mail, Google ou GitHub em segundos.
+                Nada de contratos, documentos ou espera. Acesso imediato
+                ao painel completo.
+              </p>
+              <div class="step-details">
+                <div class="step-detail-item">
+                  <span class="step-detail-dot"></span>
+                  <span>Login social ou e-mail</span>
+                </div>
+                <div class="step-detail-item">
+                  <span class="step-detail-dot"></span>
+                  <span>Painel disponível em &lt; 10s</span>
+                </div>
+                <div class="step-detail-item">
+                  <span class="step-detail-dot"></span>
+                  <span>Workspace isolado e seguro</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 02 -->
+          <div class="step-card fade-up" data-delay="100">
+            <div class="step-number-wrap">
+              <span class="step-number">02</span>
+              <div class="step-connector" aria-hidden="true"></div>
+            </div>
+            <div class="step-content">
+              <div class="step-icon-wrap">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M14 4V18M14 4L9 9M14 4L19 9" stroke="var(--heat-100)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M5 20H23" stroke="var(--heat-100)" stroke-width="1.6" stroke-linecap="round"/>
+                  <path d="M7 20V23H21V20" stroke="var(--heat-100)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <h3 class="step-title">Upload de Conhecimento</h3>
+              <p class="step-desc">
+                Faça upload de PDFs, cole URLs ou conecte sua base de
+                conhecimento. Nossa IA lê, processa e aprende com seus
+                documentos automaticamente.
+              </p>
+              <div class="step-details">
+                <div class="step-detail-item">
+                  <span class="step-detail-dot"></span>
+                  <span>PDF, DOCX, TXT, URLs</span>
+                </div>
+                <div class="step-detail-item">
+                  <span class="step-detail-dot"></span>
+                  <span>Processamento automático</span>
+                </div>
+                <div class="step-detail-item">
+                  <span class="step-detail-dot"></span>
+                  <span>Atualização em tempo real</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 03 -->
+          <div class="step-card step-card--last fade-up" data-delay="200">
+            <div class="step-number-wrap">
+              <span class="step-number">03</span>
+            </div>
+            <div class="step-content">
+              <div class="step-icon-wrap">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <rect x="4" y="4" width="12" height="10" rx="2" stroke="var(--heat-100)" stroke-width="1.5"/>
+                  <path d="M10 14V16M7 18H13" stroke="var(--heat-100)" stroke-width="1.4" stroke-linecap="round"/>
+                  <path d="M18 14C18 14 16 16.5 16 18.5C16 19.88 17.12 21 18.5 21C19.88 21 21 19.88 21 18.5C21 16.5 18 14 18 14Z" fill="rgba(255,79,0,0.2)" stroke="var(--heat-100)" stroke-width="1.3"/>
+                  <path d="M24 10L20 12V8L24 10Z" fill="var(--heat-100)" stroke="var(--heat-100)" stroke-width="1"/>
+                </svg>
+              </div>
+              <h3 class="step-title">Ativação Multi-Canal</h3>
+              <p class="step-desc">
+                Com um clique, ative o Widget no seu site e o canal de
+                WhatsApp. Copie o snippet JS, cole no HTML e está feito.
+                Seus clientes falam, a IA responde.
+              </p>
+              <div class="step-details">
+                <div class="step-detail-item">
+                  <span class="step-detail-dot"></span>
+                  <span>Widget JS em 1 linha de código</span>
+                </div>
+                <div class="step-detail-item">
+                  <span class="step-detail-dot"></span>
+                  <span>WhatsApp via QR Code</span>
+                </div>
+                <div class="step-detail-item">
+                  <span class="step-detail-dot"></span>
+                  <span>Monitoramento ao vivo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- /steps-grid -->
+
+        <!-- STEPS CTA -->
+        <div class="steps-cta fade-up" data-delay="300">
+          <a href="#" class="btn btn-primary btn-lg btn-glow">
+            Começar em 5 Minutos
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M2 8H14M14 8L9.5 3.5M14 8L9.5 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== FEATURES BENTO ===== -->
+    <section class="features-section" id="features" aria-label="Features da plataforma">
+      <div class="container">
+
+        <div class="section-header fade-up">
+          
+          <h2 class="section-title-xl">
+            Tudo que você precisa,<br />
+            <span class="heat-em">nada que você não precisa.</span>
+          </h2>
+          <p class="section-sub">
+            Uma plataforma enxuta, poderosa e sem inchaço.
+            Cada feature foi construída para gerar resultado real.
+          </p>
+        </div>
+
+        <div class="bento-grid">
+
+          <!-- Card: IA Semântica - Wide -->
+          <div class="bento-card bento-wide fade-up" data-delay="0">
+            <div class="bento-card-inner">
+              <div class="bento-icon-wrap">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <circle cx="16" cy="16" r="5" stroke="var(--heat-100)" stroke-width="1.6"/>
+                  <circle cx="16" cy="16" r="10" stroke="var(--heat-100)" stroke-width="1" stroke-dasharray="3 2" opacity="0.5"/>
+                  <circle cx="16" cy="16" r="14" stroke="var(--heat-100)" stroke-width="0.8" stroke-dasharray="2 3" opacity="0.3"/>
+                  <path d="M16 6V10M16 22V26M6 16H10M22 16H26" stroke="var(--heat-100)" stroke-width="1.4" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="bento-tag">Núcleo</div>
+              <h3 class="card-title">IA Semântica Contextual</h3>
+              <p class="card-desc">
+                Gemini com memória vetorial via Redis. Cada conversa é
+                contextualizada com a base de conhecimento do seu produto.
+                Respostas precisas, sem alucinações, sempre dentro do escopo.
+              </p>
+              <div class="bento-visual bento-visual--neural" aria-hidden="true">
+                <canvas class="neural-canvas" width="300" height="80"></canvas>
+              </div>
+            </div>
+          </div>
+
+         <div class="bento-card bento-narrow fade-up" data-delay="80">
+            <div class="bento-card-inner">
+              <div class="bento-icon-wrap">
+                <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <rect x="3" y="5" width="20" height="14" rx="2.5" stroke="var(--heat-100)" stroke-width="1.5"/>
+                  <path d="M8 20V22M18 20V22M6 22H20" stroke="var(--heat-100)" stroke-width="1.4" stroke-linecap="round"/>
+                  <path d="M8 11H18M8 14H14" stroke="var(--heat-100)" stroke-width="1.2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <h3 class="card-title">Widget Embutível</h3>
+              <p class="card-desc">
+                Uma linha de código. Totalmente customizável — cor,
+                posição, tom de voz e idioma.
+              </p>
+              <div class="bento-code-snippet" aria-label="Exemplo de código do widget">
+                <div class="code-line">
+                  <span class="code-tag">&lt;script</span>
+                  <span class="code-attr"> src</span>
+                  <span class="code-eq">=</span>
+                  <span class="code-str">"cdn.firebot.io/w.js"</span>
+                </div>
+                <div class="code-line">
+                  <span class="code-attr">  data-key</span>
+                  <span class="code-eq">=</span>
+                  <span class="code-str">"YOUR_KEY"</span>
+                  <span class="code-tag">/&gt;</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bento-card bento-third fade-up" data-delay="160">
+            <div class="bento-card-inner">
+              <div class="bento-icon-wrap bento-icon-wrap--green">
+                <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M13 3C7.48 3 3 7.48 3 13C3 14.88 3.52 16.65 4.43 18.17L3 23L8 21.6C9.46 22.46 11.17 23 13 23C18.52 23 23 18.52 23 13C23 7.48 18.52 3 13 3Z" stroke="#25D366" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M9 11.5C9 11.5 9.5 13.5 11.5 15.5C13.5 17.5 15.5 17 15.5 17" stroke="#25D366" stroke-width="1.3" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <h3 class="card-title">WhatsApp Business</h3>
+              <p class="card-desc">
+                Conecte via QR Code em segundos. Suporte 24/7 no canal
+                mais popular do Brasil.
+              </p>
+              <div class="bento-qr-wrap" aria-hidden="true">
+                <div class="bento-qr-mock">
+                  <div class="qr-corner qr-corner--tl"></div>
+                  <div class="qr-corner qr-corner--tr"></div>
+                  <div class="qr-corner qr-corner--bl"></div>
+                  <div class="qr-dots-grid"></div>
+                </div>
+                <span class="qr-label">Escaneie para conectar</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bento-card bento-third fade-up" data-delay="0">
+            <div class="bento-card-inner">
+              <div class="bento-icon-wrap">
+                <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M6 3H17L22 8V23H6V3Z" stroke="var(--heat-100)" stroke-width="1.5" stroke-linejoin="round"/>
+                  <path d="M17 3V8H22" stroke="var(--heat-100)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M10 13H18M10 17H15" stroke="var(--heat-100)" stroke-width="1.2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <h3 class="card-title">Base de Conhecimento</h3>
+              <p class="card-desc">
+                Upload de PDF, DOCX, TXT ou cole URLs. A IA processa e
+                indexa tudo automaticamente.
+              </p>
+              <div class="bento-file-list" aria-hidden="true">
+                <div class="bento-file-item bento-file-done">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="#16A34A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span>manual_produto_v3.pdf</span>
+                </div>
+                <div class="bento-file-item bento-file-done">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="#16A34A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span>faq_clientes_2025.docx</span>
+                </div>
+                <div class="bento-file-item bento-file-processing">
+                  <div class="bento-file-spinner"></div>
+                  <span>politica_retorno.txt</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bento-card bento-third fade-up" data-delay="80">
+            <div class="bento-card-inner">
+              <div class="bento-icon-wrap">
+                <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M4 20L9 14L13 17L18 10L22 13" stroke="var(--heat-100)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M4 23H22" stroke="var(--heat-100)" stroke-width="1.2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <h3 class="card-title">Analytics em Tempo Real</h3>
+              <p class="card-desc">
+                Dashboards com métricas de atendimento, taxa de resolução,
+                satisfação e volume por canal.
+              </p>
+              <div class="bento-metric-row" aria-hidden="true">
+                <div class="bento-metric">
+                  <span class="bento-metric-val">94%</span>
+                  <span class="bento-metric-lbl">Resolvido</span>
+                </div>
+                <div class="bento-metric">
+                  <span class="bento-metric-val">1.2s</span>
+                  <span class="bento-metric-lbl">Resposta</span>
+                </div>
+                <div class="bento-metric">
+                  <span class="bento-metric-val">4.8</span>
+                  <span class="bento-metric-lbl">Satisfação</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bento-card bento-wide fade-up" data-delay="160">
+            <div class="bento-card-inner">
+              <div class="bento-icon-wrap">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <circle cx="8" cy="16" r="4" stroke="var(--heat-100)" stroke-width="1.5"/>
+                  <circle cx="24" cy="8" r="4" stroke="var(--heat-100)" stroke-width="1.5"/>
+                  <circle cx="24" cy="24" r="4" stroke="var(--heat-100)" stroke-width="1.5"/>
+                  <path d="M12 14.5L20.5 10M12 17.5L20.5 22" stroke="var(--heat-100)" stroke-width="1.3" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="bento-tag">Controle</div>
+              <h3 class="card-title">Escalonamento Inteligente</h3>
+              <p class="card-desc">
+                Quando a IA não tem certeza, ela transfere para um humano com contexto completo da conversa.
+                Defina thresholds de confiança, horários de atendimento humano e regras de roteamento por
+                departamento — tudo sem linha de código.
+              </p>
+              <div class="bento-escalation-flow" aria-hidden="true">
+                <div class="esc-node esc-node--bot">IA</div>
+                <div class="esc-arrow">
+                  <svg width="40" height="14" viewBox="0 0 40 14" fill="none"><path d="M2 7H36M36 7L30 3M36 7L30 11" stroke="var(--heat-100)" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="3 2"/></svg>
+                </div>
+                <div class="esc-node esc-node--human">Humano</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bento-card bento-narrow fade-up" data-delay="240">
+            <div class="bento-card-inner">
+              <div class="bento-icon-wrap">
+                <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M13 22C17.9706 22 22 17.9706 22 13C22 8.02944 17.9706 4 13 4C8.02944 4 4 8.02944 4 13C4 17.9706 8.02944 22 13 22Z" stroke="var(--heat-100)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M4 13H22" stroke="var(--heat-100)" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M13 22C15.5 22 17.5 17.9706 17.5 13C17.5 8.02944 15.5 4 13 4C10.5 4 8.5 8.02944 8.5 13C8.5 17.9706 10.5 22 13 22Z" stroke="var(--heat-100)" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="bento-tag">Global</div>
+              <h3 class="card-title">Suporte Multi-idioma</h3>
+              <p class="card-desc">
+                A IA detecta automaticamente o idioma do cliente e responde na mesma língua, traduzindo sua base de conhecimento em tempo real.
+              </p>
+              <div style="display:flex; gap:8px; margin-top:8px;">
+                <span class="chip">PT-BR 🇧🇷</span>
+                <span class="chip">EN-US 🇺🇸</span>
+                <span class="chip">ES 🇪🇸</span>
+              </div>
+            </div>
+          </div>
+    </section>
+
+    <!-- ===== DASHBOARD PREVIEW SECTION ===== -->
+    <section class="dashboard-section" id="dashboard" aria-label="Preview do dashboard FireBot">
+      <div class="container">
+
+        <div class="section-header fade-up">
+          
+          <h2 class="section-title-xl">
+            Controle total,<br />
+            <span class="heat-em">complexidade zero.</span>
+          </h2>
+          <p class="section-sub">
+            Um painel projetado para clareza. Tudo que importa na frente,
+            tudo que não importa fora do caminho.
+          </p>
+        </div>
+
+        <!-- FULL DASHBOARD MOCKUP -->
+        <div class="dashboard-mockup fade-up" data-delay="100" role="img" aria-label="Mockup do dashboard FireBot mostrando métricas de atendimento">
+
+          <div class="dashboard-chrome">
+            <div class="dash-chrome-bar">
+              <div class="dash-chrome-dots">
+                <span class="cdot cdot-red"></span>
+                <span class="cdot cdot-yellow"></span>
+                <span class="cdot cdot-green"></span>
+              </div>
+              <span class="dash-chrome-title">FireBot Dashboard</span>
+              <div class="dash-chrome-actions">
+                <div class="dash-action-pill">
+                  <span class="mini-online-dot"></span>
+                  Sistema Operacional
+                </div>
+              </div>
+            </div>
+
+            <div class="dashboard-body">
+
+              <!-- SIDEBAR -->
+              <aside class="dash-sidebar">
+                <div class="dash-sidebar-logo">
+                  <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
+                    <path d="M14 3C14 3 8 9 8 15C8 18.31 10.69 21 14 21C17.31 21 20 18.31 20 15C20 9 14 3 14 3Z" fill="var(--heat-100)" opacity="0.9"/>
+                    <path d="M14 11C14 11 11 14 11 16.5C11 18.43 12.57 20 14.5 20C16.43 20 18 18.43 18 16.5C18 14 14 11 14 11Z" fill="var(--heat-100)"/>
+                  </svg>
+                  <span class="dash-sidebar-brand">FireBot</span>
+                </div>
+                <nav class="dash-nav" aria-label="Navegação do dashboard">
+                  <a href="#" class="dash-nav-item dash-nav-active">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="6" height="6" rx="1.5" fill="currentColor" opacity="0.8"/><rect x="9" y="1" width="6" height="6" rx="1.5" fill="currentColor" opacity="0.4"/><rect x="1" y="9" width="6" height="6" rx="1.5" fill="currentColor" opacity="0.4"/><rect x="9" y="9" width="6" height="6" rx="1.5" fill="currentColor" opacity="0.4"/></svg>
+                    Overview
+                  </a>
+                  <a href="#" class="dash-nav-item">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M14 9C14 9.43 13.83 9.83 13.54 10.12L11 12.66V11H3C2.45 11 2 10.55 2 10V3C2 2.45 2.45 2 3 2H13C13.55 2 14 2.45 14 3V9Z" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Conversas
+                    <span class="dash-nav-badge">23</span>
+                  </a>
+                  <a href="#" class="dash-nav-item">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 2H11L14 5V14H3V2Z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/><path d="M11 2V5H14" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 8H11M5 11H8" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>
+                    Conhecimento
+                  </a>
+                  <a href="#" class="dash-nav-item">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 12C3 12 4.5 10 8 10C11.5 10 13 12 13 12" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/><circle cx="8" cy="6" r="3" stroke="currentColor" stroke-width="1.1"/></svg>
+                    Equipe
+                  </a>
+                  <a href="#" class="dash-nav-item">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 4L8 2L13 4V9C13 11.76 10.76 14 8 14C5.24 14 3 11.76 3 9V4Z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/></svg>
+                    Canais
+                  </a>
+                </nav>
+                <div class="dash-sidebar-footer">
+                  <div class="dash-user-mini">
+                    <div class="dash-user-avatar">JD</div>
+                    <div class="dash-user-info">
+                      <span class="dash-user-name">João D.</span>
+                      <span class="dash-user-role">Admin</span>
+                    </div>
+                  </div>
+                </div>
+              </aside>
+
+              <!-- MAIN CONTENT -->
+              <div class="dash-content">
+
+                <!-- Header -->
+                <div class="dash-content-header">
+                  <div>
+                    <h3 class="dash-page-title">Bom dia, João 👋</h3>
+                    <p class="dash-page-sub">Aqui está o resumo de hoje</p>
+                  </div>
+                  <div class="dash-header-actions">
+                    <button class="dash-header-btn">
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1V7L10.5 10.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.1"/></svg>
+                      Hoje
+                    </button>
+                    <button class="dash-header-btn dash-header-btn--primary">
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2V12M2 7H12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                      Novo Canal
+                    </button>
+                  </div>
+                </div>
+
+                <!-- KPI Grid -->
+                <div class="dash-kpi-grid">
+                  <div class="dash-kpi-card">
+                    <div class="dash-kpi-header">
+                      <span class="dash-kpi-label">Atendimentos</span>
+                      <span class="dash-kpi-change dash-kpi-up">↑ 12%</span>
+                    </div>
+                    <span class="dash-kpi-value">1,247</span>
+                    <div class="dash-kpi-spark" aria-hidden="true">
+                      <svg viewBox="0 0 60 20" preserveAspectRatio="none" height="20" width="60">
+                        <polyline points="0,15 10,12 20,14 30,8 40,10 50,6 60,4" fill="none" stroke="rgba(255,79,0,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="dash-kpi-card">
+                    <div class="dash-kpi-header">
+                      <span class="dash-kpi-label">Taxa de Resolução</span>
+                      <span class="dash-kpi-change dash-kpi-up">↑ 3%</span>
+                    </div>
+                    <span class="dash-kpi-value">94.2%</span>
+                    <div class="dash-kpi-spark" aria-hidden="true">
+                      <svg viewBox="0 0 60 20" preserveAspectRatio="none" height="20" width="60">
+                        <polyline points="0,14 10,13 20,11 30,10 40,9 50,8 60,6" fill="none" stroke="rgba(22,163,74,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="dash-kpi-card">
+                    <div class="dash-kpi-header">
+                      <span class="dash-kpi-label">Tempo Médio</span>
+                      <span class="dash-kpi-change dash-kpi-up">↓ 0.4s</span>
+                    </div>
+                    <span class="dash-kpi-value">1.2s</span>
+                    <div class="dash-kpi-spark" aria-hidden="true">
+                      <svg viewBox="0 0 60 20" preserveAspectRatio="none" height="20" width="60">
+                        <polyline points="0,6 10,8 20,7 30,9 40,8 50,6 60,5" fill="none" stroke="rgba(37,99,235,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="dash-kpi-card">
+                    <div class="dash-kpi-header">
+                      <span class="dash-kpi-label">Satisfação</span>
+                      <span class="dash-kpi-change dash-kpi-up">↑ 0.2</span>
+                    </div>
+                    <span class="dash-kpi-value">4.8 ★</span>
+                    <div class="dash-kpi-spark" aria-hidden="true">
+                      <svg viewBox="0 0 60 20" preserveAspectRatio="none" height="20" width="60">
+                        <polyline points="0,12 10,11 20,10 30,9 40,9 50,8 60,7" fill="none" stroke="rgba(202,138,4,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Two column row -->
+                <div class="dash-two-col">
+
+                  <!-- Chart -->
+                  <div class="dash-chart-card">
+                    <div class="dash-chart-header">
+                      <span class="dash-chart-title">Volume de Conversas</span>
+                      <div class="dash-chart-legend">
+                        <span class="dash-legend-dot" style="background:var(--heat-100)"></span>
+                        <span>Widget</span>
+                        <span class="dash-legend-dot" style="background:#25D366;margin-left:8px"></span>
+                        <span>WhatsApp</span>
+                      </div>
+                    </div>
+                    <div class="dash-chart-area" aria-hidden="true">
+                      <svg viewBox="0 0 320 90" preserveAspectRatio="none" width="100%" height="90">
+                        <defs>
+                          <linearGradient id="lineGrad1" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="rgba(255,79,0,0.18)"/>
+                            <stop offset="100%" stop-color="rgba(255,79,0,0)"/>
+                          </linearGradient>
+                          <linearGradient id="lineGrad2" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="rgba(37,211,102,0.12)"/>
+                            <stop offset="100%" stop-color="rgba(37,211,102,0)"/>
+                          </linearGradient>
+                        </defs>
+                        <path d="M0 70 C40 60 80 40 120 50 C160 60 200 30 240 35 C280 40 300 20 320 15 L320 90 L0 90 Z" fill="url(#lineGrad1)"/>
+                        <path d="M0 70 C40 60 80 40 120 50 C160 60 200 30 240 35 C280 40 300 20 320 15" fill="none" stroke="var(--heat-100)" stroke-width="1.8" stroke-linecap="round"/>
+                        <path d="M0 80 C40 72 80 65 120 68 C160 70 200 58 240 60 C280 62 300 50 320 48 L320 90 L0 90 Z" fill="url(#lineGrad2)"/>
+                        <path d="M0 80 C40 72 80 65 120 68 C160 70 200 58 240 60 C280 62 300 50 320 48" fill="none" stroke="#25D366" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 2"/>
+                      </svg>
+                      <div class="dash-chart-x-labels">
+                        <span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span><span>Dom</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Recent activity -->
+                  <div class="dash-activity-card">
+                    <div class="dash-activity-header">
+                      <span class="dash-activity-title">Conversas Recentes</span>
+                      <a href="#" class="dash-see-all">Ver todas →</a>
+                    </div>
+                    <div class="dash-activity-list">
+                      <div class="dash-activity-item">
+                        <div class="dash-activity-avatar dash-activity-avatar--widget">W</div>
+                        <div class="dash-activity-info">
+                          <span class="dash-activity-user">Cliente #4821</span>
+                          <span class="dash-activity-msg">Qual o prazo de entrega?</span>
+                        </div>
+                        <span class="dash-activity-time">agora</span>
+                      </div>
+                      <div class="dash-activity-item">
+                        <div class="dash-activity-avatar dash-activity-avatar--wa">W</div>
+                        <div class="dash-activity-info">
+                          <span class="dash-activity-user">+55 11 9 ****</span>
+                          <span class="dash-activity-msg">Como faço para trocar?</span>
+                        </div>
+                        <span class="dash-activity-time">2min</span>
+                      </div>
+                      <div class="dash-activity-item">
+                        <div class="dash-activity-avatar dash-activity-avatar--widget">W</div>
+                        <div class="dash-activity-info">
+                          <span class="dash-activity-user">Cliente #4820</span>
+                          <span class="dash-activity-msg">Vocês aceitam PIX?</span>
+                        </div>
+                        <span class="dash-activity-time">5min</span>
+                      </div>
+                      <div class="dash-activity-item dash-activity-item--escalated">
+                        <div class="dash-activity-avatar dash-activity-avatar--human">H</div>
+                        <div class="dash-activity-info">
+                          <span class="dash-activity-user">Cliente #4819</span>
+                          <span class="dash-activity-msg">Problema no pagamento</span>
+                        </div>
+                        <span class="dash-activity-badge">Humano</span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <!-- /dash-two-col -->
+
+              </div>
+              <!-- /dash-content -->
+
+            </div>
+            <!-- /dashboard-body -->
+          </div>
+          <!-- /dashboard-chrome -->
+
+        </div>
+        <!-- /dashboard-mockup -->
+
+      </div>
+            </div>
+          </div>
+        <div class="multi-device-wrap fade-up" data-delay="200">
+          
+          <div class="device-notebook">
+            <div class="device-screen">
+              <div class="abstract-ui-header"></div>
+              <div class="abstract-ui-sidebar"></div>
+              <div class="abstract-ui-cards"></div>
+            </div>
+            <div class="device-notebook-base"></div>
+          </div>
+
+          <div class="device-tablet">
+            <div class="device-screen">
+              <div class="abstract-ui-header"></div>
+              <div class="abstract-ui-cards"></div>
+            </div>
+          </div>
+
+          <div class="device-phone">
+            <div class="device-screen">
+              <div class="abstract-ui-header"></div>
+              <div class="abstract-ui-chat"></div>
+            </div>
+          </div>
+
+        </div>
+        </div>
+    </section>
+
+    <section class="integracao-section" id="integracao" aria-label="Integrações do FireBot">
+      <div class="container">
+
+        <div class="section-header fade-up">
+          
+          <h2 class="section-title-xl">
+            Infraestrutura de<br />
+            <span class="heat-em">nível empresarial.</span>
+          </h2>
+          <p class="section-sub">
+            Gemini, Redis e n8n trabalhando juntos por baixo dos panos.
+            Você vê o resultado. Nós cuidamos da complexidade.
+          </p>
+        </div>
+
+        <div class="tech-stack-grid fade-up" data-delay="100">
+
+          <div class="tech-stack-card">
+            <div class="tech-stack-icon tech-icon--gemini" aria-hidden="true">
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                <path d="M18 4L22 14L32 18L22 22L18 32L14 22L4 18L14 14L18 4Z" stroke="url(#geminiGrad)" stroke-width="1.8" fill="none"/>
+                <defs><linearGradient id="geminiGrad" x1="4" y1="4" x2="32" y2="32"><stop stop-color="#4285F4"/><stop offset="1" stop-color="#34A853"/></linearGradient></defs>
+              </svg>
+            </div>
+            <h4 class="tech-stack-name">Google Gemini</h4>
+            <p class="tech-stack-desc">LLM de última geração para compreensão semântica e respostas naturais.</p>
+            <div class="tech-stack-badge">IA Core</div>
+          </div>
+
+          <div class="tech-stack-card">
+            <div class="tech-stack-icon tech-icon--redis" aria-hidden="true">
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                <ellipse cx="18" cy="12" rx="12" ry="4" stroke="#DC2626" stroke-width="1.6"/>
+                <path d="M6 12V24C6 26.21 11.37 28 18 28C24.63 28 30 26.21 30 24V12" stroke="#DC2626" stroke-width="1.6"/>
+                <path d="M6 18C6 20.21 11.37 22 18 22C24.63 22 30 20.21 30 18" stroke="#DC2626" stroke-width="1.2" stroke-dasharray="2 1.5"/>
+              </svg>
+            </div>
+            <h4 class="tech-stack-name">Redis Vector</h4>
+            <p class="tech-stack-desc">Memória vetorial de alta velocidade para contexto e busca semântica.</p>
+            <div class="tech-stack-badge">Memória</div>
+          </div>
+
+          <div class="tech-stack-card">
+            <div class="tech-stack-icon tech-icon--n8n" aria-hidden="true">
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                <circle cx="10" cy="18" r="4" stroke="#EA4B71" stroke-width="1.6"/>
+                <circle cx="26" cy="10" r="4" stroke="#EA4B71" stroke-width="1.6"/>
+                <circle cx="26" cy="26" r="4" stroke="#EA4B71" stroke-width="1.6"/>
+                <path d="M14 16.5L22.5 12M14 19.5L22.5 24" stroke="#EA4B71" stroke-width="1.3" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h4 class="tech-stack-name">n8n Workflows</h4>
+            <p class="tech-stack-desc">Orquestração de automações com mais de 400 integrações nativas.</p>
+            <div class="tech-stack-badge">Orquestração</div>
+          </div>
+
+          <div class="tech-stack-card">
+            <div class="tech-stack-icon tech-icon--whatsapp" aria-hidden="true">
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                <path d="M18 4C10.27 4 4 10.27 4 18C4 20.55 4.69 22.94 5.9 25L4 32L11.25 30.14C13.27 31.3 15.56 32 18 32C25.73 32 32 25.73 32 18C32 10.27 25.73 4 18 4Z" stroke="#25D366" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 16.5C12 16.5 13 19.5 15.5 22C18 24.5 21 25 21 25" stroke="#25D366" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h4 class="tech-stack-name">WhatsApp API</h4>
+            <p class="tech-stack-desc">Integração oficial via Baileys para suporte massivo e confiável.</p>
+            <div class="tech-stack-badge">Canal</div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== CTA FINAL ===== -->
+    <section class="cta-final" aria-label="Chamada para ação final">
+      <div class="container">
+        <div class="cta-final-inner fade-up">
+
+          <div class="cta-final-badge" aria-hidden="true">
+            <span class="cta-badge-dot"></span>
+            <span>Plataforma disponível agora</span>
+          </div>
+
+          <h2 class="cta-final-title">
+            Seu suporte inteligente<br />
+            começa <span class="heat-em">hoje.</span>
+          </h2>
+
+          <p class="cta-final-sub">
+            Sem contratos. Sem cartão de crédito. Cancele quando quiser.
+            Apenas resultados reais desde o primeiro atendimento.
+          </p>
+
+          <div class="cta-final-actions">
+            <a href="#" class="btn btn-primary btn-xl btn-glow">
+              Falar com Especialista
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M3 9H15M15 9L10 4.5M15 9L10 13.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="#dashboard" class="btn btn-ghost btn-xl">Ver Demo</a>
+          </div>
+
+          <div class="cta-final-trust">
+            <span>Setup em 5 min</span>
+            <span class="cta-trust-sep">·</span>
+            <span>Suporte incluso</span>
+            <span class="cta-trust-sep">·</span>
+            <span>Escala automaticamente</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="#" class="footer-logo-wrap" aria-label="FireBot - Início">
+            <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
+              <path d="M14 3C14 3 8 9 8 15C8 18.31 10.69 21 14 21C17.31 21 20 18.31 20 15C20 9 14 3 14 3Z" fill="var(--heat-100)" opacity="0.9"/>
+              <path d="M14 11C14 11 11 14 11 16.5C11 18.43 12.57 20 14.5 20C16.43 20 18 18.43 18 16.5C18 14 14 11 14 11Z" fill="var(--heat-100)"/>
+            </svg>
+            <span class="footer-logo-text">FireBot</span>
+          </a>
+          <p class="footer-tagline">
+            Plataforma para automação de suporte.<br />
+            Do upload ao atendimento em 5 minutos.
+          </p>
+        </div>
+
+        <nav class="footer-links" aria-label="Links do rodapé">
+          <div class="footer-col">
+            <span class="footer-col-title">Plataforma</span>
+            <a href="#como-funciona">Como Funciona</a>
+            <a href="#features">Features</a>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#integracao">Integrações</a>
+          </div>
+          <div class="footer-col">
+            <span class="footer-col-title">Conta</span>
+            <a href="#">Criar Conta</a>
+            <a href="#">Entrar</a>
+            <a href="#">Documentação</a>
+            <a href="mailto:contato@firebot.io">Suporte</a>
+          </div>
+          <div class="footer-col">
+            <span class="footer-col-title">Legal</span>
+            <a href="#">Privacidade</a>
+            <a href="#">Termos de Uso</a>
+            <a href="#">SLA</a>
+          </div>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 FireBot. Todos os direitos reservados.</span>
+        <span class="footer-bottom-right">Feito com precisão de engenharia.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== FLOATING WIDGET DEMO ===== -->
+  <div class="widget-container" aria-label="Demo do chat FireBot" role="complementary">
+    <div class="chat-window" id="chat-window" aria-hidden="true" role="dialog" aria-label="FireBot Demo Chat" aria-modal="true">
+      <div class="chat-header">
+        <div class="chat-header-left">
+          <div class="chat-avatar">
+            <svg width="16" height="16" viewBox="0 0 28 28" fill="none">
+              <path d="M14 3C14 3 8 9 8 15C8 18.31 10.69 21 14 21C17.31 21 20 18.31 20 15C20 9 14 3 14 3Z" fill="white" opacity="0.9"/>
+              <path d="M14 11C14 11 11 14 11 16.5C11 18.43 12.57 20 14.5 20C16.43 20 18 18.43 18 16.5C18 14 14 11 14 11Z" fill="white"/>
+            </svg>
+          </div>
+          <div>
+            <div class="chat-name">FireBot</div>
+            <div class="chat-online">
+              <span class="online-dot"></span>
+              Ativo agora
+            </div>
+          </div>
+        </div>
+        <button class="chat-close" id="chat-close" aria-label="Fechar chat">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M4 4L12 12M12 4L4 12" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="chat-messages" role="log" aria-live="polite">
+        <div class="chat-bubble chat-bubble-bot" role="article">
+          <p>Olá! Sou o FireBot 🔥 Posso ajudar com dúvidas sobre a plataforma. Como configurar, ativar canais ou qualquer coisa que precisar!</p>
+          <span class="chat-time">agora</span>
+        </div>
+      </div>
+      <div class="chat-input-wrap">
+        <input type="text" class="chat-input" placeholder="Digite sua pergunta..." aria-label="Mensagem para o FireBot" />
+        <button class="chat-send" aria-label="Enviar mensagem">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M2 8L14 2L8 14L7 9L2 8Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <button class="widget-fab" id="widget-fab" aria-label="Abrir chat de suporte" aria-expanded="false">
+      <svg class="fab-icon-chat" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M21 15C21 15.53 20.79 16.04 20.41 16.41C20.04 16.79 19.53 17 19 17H7L3 21V5C3 4.47 3.21 3.96 3.59 3.59C3.96 3.21 4.47 3 5 3H19C19.53 3 20.04 3.21 20.41 3.59C20.79 3.96 21 4.47 21 5V15Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <svg class="fab-icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:none">
+        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
