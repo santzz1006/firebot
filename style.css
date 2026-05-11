@@ -4537,17 +4537,86 @@ input, textarea, select {
   50% { transform: translateY(-12px); }
 }
 
-/* Responsividade para não quebrar a tela no celular */
+/* Responsividade REAL (redimensionando os elementos em vez de usar scale) */
 @media (max-width: 768px) {
   .multi-device-wrap {
-    transform: scale(0.65); /* Encolhe todo o conjunto proporcionalmente */
-    margin-top: 0;
-    margin-bottom: -50px;
+    transform: none;
+    left: 0;
+    width: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
+
+  /* Reduzindo o Notebook */
+  .device-notebook .device-screen {
+    width: 280px;
+    height: 170px;
+    border-width: 4px 4px 0 4px;
+  }
+  .device-notebook-base { height: 8px; }
+  .device-notebook-base::before { width: 40px; height: 2px; }
+
+  /* Reduzindo o Tablet */
+  .device-tablet {
+    margin-left: -40px;
+    margin-bottom: -10px;
+  }
+  .device-tablet .device-screen {
+    width: 120px;
+    height: 170px;
+    border-width: 5px;
+  }
+
+  /* Reduzindo o Celular */
+  .device-phone {
+    margin-left: -20px;
+    margin-bottom: -15px;
+  }
+  .device-phone .device-screen {
+    width: 65px;
+    height: 130px;
+    border-width: 3px;
+  }
+  .device-phone .device-screen::after { height: 6px; }
 }
+
 @media (max-width: 480px) {
   .multi-device-wrap {
-    transform: scale(0.45);
-    margin-bottom: -80px;
+    margin-top: 140px;
+    margin-bottom: 0;
   }
+
+  /* Reduzindo o Notebook para caber em telas bem pequenas */
+  .device-notebook .device-screen {
+    width: 190px;
+    height: 115px;
+    border-width: 3px 3px 0 3px;
+  }
+  .device-notebook-base { height: 6px; }
+  .device-notebook-base::before { width: 30px; }
+
+  /* Reduzindo o Tablet */
+  .device-tablet {
+    margin-left: -25px;
+    margin-bottom: -8px;
+  }
+  .device-tablet .device-screen {
+    width: 80px;
+    height: 115px;
+    border-width: 4px;
+    border-radius: var(--radius-lg);
+  }
+
+  /* Reduzindo o Celular */
+  .device-phone {
+    margin-left: -15px;
+    margin-bottom: -12px;
+  }
+  .device-phone .device-screen {
+    width: 45px;
+    height: 90px;
+    border-width: 2px;
+    border-radius: var(--radius-md);
+  }
+  .device-phone .device-screen::after { height: 4px; }
 }
